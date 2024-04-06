@@ -25,6 +25,7 @@ async def run_trains():
         for train in trains:
             train.wait_at_station()
         await asyncio.sleep(5)  # Simulate time delay
+        
 # Start the simulation
 loop = asyncio.get_event_loop()
 loop.run_until_complete(run_trains())

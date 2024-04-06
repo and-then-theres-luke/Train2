@@ -11,7 +11,7 @@ class Train:
         """Move the train to the next station on its route"""
         await asyncio.sleep(5)  # Wait for 5 minutes at the current station
         full_route = self.route.get_stations()
-        await self.current_station.remove_train(self)
+        self.current_station.remove_train(self)
         for index in range(len(full_route)):
             if self.current_station == full_route[-1]:
                 print("Returning to origin...")
@@ -23,7 +23,7 @@ class Train:
                 break
         print(f"{self.name} is in transit to {self.current_station.name}...")
         await asyncio.sleep(30)
-        await self.current_station.add_train(self)
+        self.current_station.add_train(self)
 
     def wait_at_station(self):
         """Wait at the station for 5 minutes and then check for arrival"""
